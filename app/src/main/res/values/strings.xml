@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DictionaryApp</string>
+    <string-array name="words_array">
+        <item>Verb</item>
+        <item>Adverb</item>
+        <item>Adjective</item>
+        <item>Phrase or idiom</item>
+    </string-array>
+</resources>

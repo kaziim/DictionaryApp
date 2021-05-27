@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "754190511590",
+    "project_id": "dictionaryceng",
+    "storage_bucket": "dictionaryceng.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754190511590:android:c2aab74436bbea00707a27",
+        "android_client_info": {
+          "package_name": "com.kazim.dictionaryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754190511590-i9p398el4ula25m9a1r69n7kup9n5qhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kazim.dictionaryapp",
+            "certificate_hash": "d280837d6c2c58dff03e9ab0d70c378003fbdf28"
+          }
+        },
+        {
+          "client_id": "754190511590-3i3uqtgi5jmu7llfdqe7l9asl32e13tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwez4HeMu4krn9P2TfrIOCEzB9qXjJ3zo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754190511590-3i3uqtgi5jmu7llfdqe7l9asl32e13tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
