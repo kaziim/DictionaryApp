@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DictionaryApp">
-        <activity android:name=".RegisterUser"/>
+        <activity android:name=".MainMenu"></activity>
+        <activity android:name=".RegisterUser" />
         <activity android:name=".AddWord" />
         <activity android:name=".LoginScreen">
             <intent-filter>

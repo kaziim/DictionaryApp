@@ -2,6 +2,7 @@ package com.kazim.dictionaryapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Button
@@ -29,6 +30,17 @@ class LoginScreen : AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            // User is signed in
+            val i = Intent(this@LoginScreen, MainMenu::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
+        } else {
+            // User is signed out
+            Log.d("dictionary", "onAuthStateChanged:signed_out")
+        }
 
         register = findViewById(R.id.tvRegister)
         register.setOnClickListener(this)
@@ -80,14 +92,19 @@ class LoginScreen : AppCompatActivity(),View.OnClickListener {
 
         progressBar.visibility = View.VISIBLE
 
-        mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener(object: OnCompleteListener<AuthResult>{
+        mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener(object :
+            OnCompleteListener<AuthResult> {
             override fun onComplete(task: Task<AuthResult>) {
-                if (task.isSuccessful){
+                if (task.isSuccessful) {
                     //TODO redirect to user profile
-                    startActivity(Intent(this@LoginScreen, AddWord::class.java))
+                    startActivity(Intent(this@LoginScreen, MainMenu::class.java))
                     progressBar.visibility = View.GONE
-                }else{
-                    Toast.makeText(this@LoginScreen,"Failed to log in, please check your credentials!",Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        this@LoginScreen,
+                        "Failed to log in, please check your credentials!",
+                        Toast.LENGTH_LONG
+                    ).show()
                     progressBar.visibility = View.GONE
                 }
             }
