@@ -1,4 +1,4 @@
-package com.kazim.dictionaryapp
+package com.kazim.dictionaryapp.MainFragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.kazim.dictionaryapp.Login.LoginScreen
 import com.kazim.dictionaryapp.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -34,7 +34,7 @@ class SettingsFragment : Fragment() {
         signOutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut();
             requireActivity().finish()
-            startActivity(Intent(requireContext(),LoginScreen::class.java))
+            startActivity(Intent(requireContext(), LoginScreen::class.java))
         }
 
     }

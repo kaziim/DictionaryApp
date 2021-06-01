@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DictionaryApp">
         <activity android:name=".MainMenu"></activity>
-        <activity android:name=".RegisterUser" />
-        <activity android:name=".LoginScreen">
+        <activity android:name=".Login.RegisterUser" />
+        <activity android:name=".Login.LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

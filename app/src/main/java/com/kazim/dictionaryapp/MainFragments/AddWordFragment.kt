@@ -1,31 +1,27 @@
-package com.kazim.dictionaryapp
+package com.kazim.dictionaryapp.MainFragments
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.kazim.dictionaryapp.databinding.FragmentProfileBinding
-import java.lang.StringBuilder
-import java.util.zip.Inflater
+import com.kazim.dictionaryapp.R
+import com.kazim.dictionaryapp.Word
+import com.kazim.dictionaryapp.databinding.FragmentAddWordBinding
 
 
-class ProfileFragment : Fragment() {
+class AddWordFragment : Fragment() {
     var spinnerText:String = ""
-    lateinit var binding: FragmentProfileBinding
+    lateinit var binding: FragmentAddWordBinding
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        binding = FragmentProfileBinding.inflate(inflater,container,false)
+        binding = FragmentAddWordBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -76,7 +72,7 @@ class ProfileFragment : Fragment() {
             var synonym = binding.etSynonym.text.toString()
             var antonym = binding.etAntonym.text.toString()
             if (uid != null) {
-                database.child("Personal Words").child(uid).child(category).child(word).setValue(Word(category,word,definition,example,synonym,antonym))
+                database.child("Personal Words").child(uid).child(word).setValue(Word(category,word,definition,example,synonym,antonym))
             }
 
             //clear text fields
@@ -89,31 +85,12 @@ class ProfileFragment : Fragment() {
 
         }
 
-        // veri okuma işlemi
-        /*var getdata = object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                var sb = StringBuilder() // metin birleştirme sınıfı
-                for (i in snapshot.children){
-                    var adsoyad = i.child("padsoyad").getValue()
-                    var maas = i.child("pmaas").getValue()
-                    sb.append("${i.key} $adsoyad $$maas \n")
-                }
-                binding.tvSonuc.setText(sb)
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        }*/
-
-        /* database.addValueEventListener(getdata)
-         database.addListenerForSingleValueEvent(getdata)*/
     }
     companion object {
 
-        fun newInstance(): ProfileFragment {
-            return ProfileFragment()
+        fun newInstance(): AddWordFragment {
+            return AddWordFragment()
         }
     }
 }
