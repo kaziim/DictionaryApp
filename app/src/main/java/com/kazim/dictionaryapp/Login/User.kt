@@ -1,4 +1,4 @@
-package com.kazim.dictionaryapp
+package com.kazim.dictionaryapp.Login
 
 class User {
     var fullName:String = ""

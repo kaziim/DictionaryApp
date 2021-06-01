@@ -14,7 +14,6 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.kazim.dictionaryapp.R
-import com.kazim.dictionaryapp.User
 
 class RegisterUser : AppCompatActivity(), View.OnClickListener {
 

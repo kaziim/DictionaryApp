@@ -6,11 +6,6 @@
     app:startDestination="@id/myWordsFragment">
 
     <fragment
-        android:id="@+id/dashboardFragment"
-        android:name="com.kazim.dictionaryapp.MainFragments.DashboardFragment"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-    <fragment
         android:id="@+id/addWordFragment"
         android:name="com.kazim.dictionaryapp.MainFragments.AddWordFragment"
         android:label="fragment_profile"
@@ -25,4 +20,9 @@
         android:name="com.kazim.dictionaryapp.MainFragments.MyWordsFragment"
         android:label="fragment_my_words"
         tools:layout="@layout/fragment_my_words" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.kazim.dictionaryapp.MainFragments.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
 </navigation>

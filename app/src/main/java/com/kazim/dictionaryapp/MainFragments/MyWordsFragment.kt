@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.kazim.dictionaryapp.MyAdapter
+import com.kazim.dictionaryapp.Adapters.WordAdapter
 import com.kazim.dictionaryapp.Word
 import com.kazim.dictionaryapp.databinding.FragmentMyWordsBinding
 
@@ -48,9 +48,9 @@ class MyWordsFragment : Fragment() {
         binding.myWordsProgressBar.visibility = View.VISIBLE
         var user = FirebaseAuth.getInstance().currentUser
         var uid = user?.uid
-        if (uid != null) {
-            dbref = FirebaseDatabase.getInstance().getReference("Personal Words").child(uid)
-        }
+
+        dbref = uid?.let { FirebaseDatabase.getInstance().getReference("Personal Words").child(it) }!!
+
 
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -59,8 +59,7 @@ class MyWordsFragment : Fragment() {
                         val word = wordSnapshot.getValue(Word::class.java)
                         wordArrayList.add(word!!)
                     }
-
-                    wordRecycylerView.adapter = MyAdapter(wordArrayList)
+                    wordRecycylerView.adapter = WordAdapter(wordArrayList)
                     binding.myWordsProgressBar.visibility = View.GONE
                 }
             }
@@ -68,9 +67,7 @@ class MyWordsFragment : Fragment() {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
-
 
 
     }

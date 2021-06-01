@@ -75,6 +75,9 @@ class AddWordFragment : Fragment() {
                 database.child("Personal Words").child(uid).child(word).setValue(Word(category,word,definition,example,synonym,antonym))
             }
 
+            //TODO for adding database/stock words
+            //database.child("Words").child(word).setValue(Word(category,word,definition,example,synonym,antonym))
+
             //clear text fields
             binding.etWord.text.clear()
             binding.etDefinition.text.clear()

@@ -8,12 +8,12 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="dashboardFragment">
+                  <entry key="addWordFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-31" />
+                            <option name="x" value="154" />
                             <option name="y" value="85" />
                           </Point>
                         </option>
@@ -32,13 +32,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="profileFragment">
+                  <entry key="quizFragment2">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="157" />
-                            <option name="y" value="86" />
+                            <option name="x" value="-51" />
+                            <option name="y" value="82" />
                           </Point>
                         </option>
                       </LayoutPositions>
