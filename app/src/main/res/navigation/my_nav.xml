@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/myWordsFragment">
+    app:startDestination="@id/quizFragment">
 
     <fragment
         android:id="@+id/addWordFragment"
         android:name="com.kazim.dictionaryapp.MainFragments.AddWordFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_add_word" />
+        tools:layout="@layout/fragment_add_word" >
+        <action
+            android:id="@+id/action_addWordFragment_to_newWordFragment"
+            app:destination="@id/newWordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.kazim.dictionaryapp.MainFragments.SettingsFragment"
@@ -25,4 +29,25 @@
         android:name="com.kazim.dictionaryapp.MainFragments.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/newWordFragment"
+        android:name="com.kazim.dictionaryapp.MainFragments.NewWordFragment"
+        android:label="fragment_new_word"
+        tools:layout="@layout/fragment_new_word" >
+        <action
+            android:id="@+id/action_newWordFragment_to_addWordFragment"
+            app:destination="@id/addWordFragment" />
+        <action
+            android:id="@+id/action_newWordFragment_to_existingWordFragment"
+            app:destination="@id/existingWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/existingWordFragment"
+        android:name="com.kazim.dictionaryapp.MainFragments.ExistingWordFragment"
+        android:label="fragment_existing_word"
+        tools:layout="@layout/fragment_existing_word" >
+        <action
+            android:id="@+id/action_existingWordFragment_to_newWordFragment"
+            app:destination="@id/newWordFragment" />
+    </fragment>
 </navigation>

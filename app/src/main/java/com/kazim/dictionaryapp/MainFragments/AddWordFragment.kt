@@ -71,12 +71,16 @@ class AddWordFragment : Fragment() {
             var example = binding.etExampleSentence.text.toString()
             var synonym = binding.etSynonym.text.toString()
             var antonym = binding.etAntonym.text.toString()
-            if (uid != null) {
-                database.child("Personal Words").child(uid).child(word).setValue(Word(category,word,definition,example,synonym,antonym))
+
+
+            uid?.let { it1 -> database.child("Personal Words").child(it1).child(word).setValue(Word(category,word,definition,example,synonym,antonym)) }
+
+            if (binding.switchAddToDatabase.isChecked){
+                //TODO for adding database/stock words
+                database.child("Words").child(word).setValue(Word(category,word,definition,example,synonym,antonym))
             }
 
-            //TODO for adding database/stock words
-            //database.child("Words").child(word).setValue(Word(category,word,definition,example,synonym,antonym))
+
 
             //clear text fields
             binding.etWord.text.clear()
@@ -85,6 +89,11 @@ class AddWordFragment : Fragment() {
             binding.etSynonym.text.clear()
             binding.etAntonym.text.clear()
 
+            if (binding.switchAddToDatabase.isChecked) {
+                Toast.makeText(requireContext(), "Word has been succesfully added to pool and personal words", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(requireContext(), "Word has been succesfully added", Toast.LENGTH_SHORT).show()
+            }
 
         }
 

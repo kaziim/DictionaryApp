@@ -8,7 +8,7 @@
         android:id="@+id/myWordsFragment"
         android:icon="@drawable/ic_my_words"/>
     <item android:title="Add Word"
-        android:id="@+id/addWordFragment"
+        android:id="@+id/newWordFragment"
         android:icon="@drawable/ic_add"/>
     <item android:title="Settings"
         android:id="@+id/settingsFragment"
