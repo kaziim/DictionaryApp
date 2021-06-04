@@ -1,17 +1,18 @@
 package com.kazim.dictionaryapp.MainFragments
 
+import RecyclerItemClickListener
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.kazim.dictionaryapp.Adapters.WordAdapter
-import com.kazim.dictionaryapp.R
 import com.kazim.dictionaryapp.Word
 import com.kazim.dictionaryapp.databinding.FragmentExistingWordBinding
 
@@ -43,6 +44,41 @@ class ExistingWordFragment : Fragment() {
         wordArrayList = arrayListOf<Word>()
         getWordData()
 
+
+
+        wordRecycylerView.addOnItemTouchListener(RecyclerItemClickListener(requireContext(), wordRecycylerView, object : RecyclerItemClickListener.OnItemClickListener {
+
+            override fun onItemClick(view: View, position: Int) {
+                TODO("do nothing")
+            }
+            override fun onItemLongClick(view: View?, position: Int) {
+                Log.d("tag","Clicked at position $position")
+                Log.d("tag","Word at position ${wordArrayList[position].word}")
+                var category = wordArrayList[position].category
+                var word = wordArrayList[position].word
+                var definition = wordArrayList[position].definition
+                var example = wordArrayList[position].category
+                var synonym = wordArrayList[position].synonyms
+                var antonym = wordArrayList[position].antonyms
+                addWord(category,word,definition,example,synonym,antonym)
+            }
+        }))
+
+    }
+
+    private fun addWord(category: String?, word: String?, definition: String?, example: String?, synonym: String?, antonym: String?) {
+        var user = FirebaseAuth.getInstance().currentUser
+        var uid = user?.uid
+
+        var database = FirebaseDatabase.getInstance().reference
+
+        uid?.let {
+            it1 -> word?.let {
+            database.child("Personal Words").child(it1).child(it).setValue(Word(category,word,definition,example,synonym,antonym))
+            }
+        }
+
+        Toast.makeText(requireContext(),"$word has been added to your words!",Toast.LENGTH_LONG).show()
     }
 
     private fun getWordData() {

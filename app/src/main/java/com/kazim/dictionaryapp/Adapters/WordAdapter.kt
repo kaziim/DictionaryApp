@@ -25,7 +25,9 @@ class WordAdapter(private val wordList : ArrayList<Word>): RecyclerView.Adapter<
         holder.definition.text = currentItem.definition
         holder.synonym.text = currentItem.synonyms
         holder.antonym.text = currentItem.antonyms
+
     }
+
 
     override fun getItemCount(): Int {
         return wordList.size
@@ -38,6 +40,8 @@ class WordAdapter(private val wordList : ArrayList<Word>): RecyclerView.Adapter<
         val definition : TextView = itemView.findViewById(R.id.tvDefinition)
         val synonym : TextView = itemView.findViewById(R.id.tvSynonym)
         val antonym : TextView = itemView.findViewById(R.id.tvAntonym)
+
+
 
     }
 
