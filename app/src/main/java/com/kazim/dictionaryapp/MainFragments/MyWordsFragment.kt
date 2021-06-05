@@ -48,7 +48,7 @@ class MyWordsFragment : Fragment() {
         wordRecycylerView.addOnItemTouchListener(RecyclerItemClickListener(requireContext(), wordRecycylerView, object : RecyclerItemClickListener.OnItemClickListener {
 
             override fun onItemClick(view: View, position: Int) {
-                TODO("do nothing")
+                Toast.makeText(requireContext(),"You need to long-press if you want to delete",Toast.LENGTH_LONG).show()
             }
 
             override fun onItemLongClick(view: View?, position: Int) {
@@ -102,6 +102,7 @@ class MyWordsFragment : Fragment() {
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                wordArrayList.clear()
                 if (snapshot.exists()) {
                     for (wordSnapshot in snapshot.children) {
                         val word = wordSnapshot.getValue(Word::class.java)

@@ -46,10 +46,11 @@ class SettingsFragment : Fragment() {
             (activity as MainMenu).setAlarm { timeInMillis ->
                 (activity as MainMenu).alarmService.setExactAlarm(timeInMillis)
             }
-
+            Toast.makeText(requireContext(),"Notification will be sent at selected time",Toast.LENGTH_LONG).show()
         }
         binding.btRepetitive.setOnClickListener {
             (activity as MainMenu).setAlarm { (activity as MainMenu).alarmService.setRepetitiveAlarm(it) }
+            Toast.makeText(requireContext(),"Notification will repeat twice a day starting from selected time",Toast.LENGTH_LONG).show()
         }
 
         binding.btCancelNotifications.setOnClickListener {

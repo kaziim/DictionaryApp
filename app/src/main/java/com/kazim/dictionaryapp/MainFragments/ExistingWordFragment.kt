@@ -49,7 +49,7 @@ class ExistingWordFragment : Fragment() {
         wordRecycylerView.addOnItemTouchListener(RecyclerItemClickListener(requireContext(), wordRecycylerView, object : RecyclerItemClickListener.OnItemClickListener {
 
             override fun onItemClick(view: View, position: Int) {
-                TODO("do nothing")
+                Toast.makeText(requireContext(),"You need to long-press if you want to delete",Toast.LENGTH_LONG).show()
             }
             override fun onItemLongClick(view: View?, position: Int) {
                 Log.d("tag","Clicked at position $position")

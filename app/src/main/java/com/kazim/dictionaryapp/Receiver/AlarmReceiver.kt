@@ -38,12 +38,13 @@ class AlarmReceiver : BroadcastReceiver() {
     fun showPushNotification(context: Context, intent: Intent){
         // Create an explicit intent for an Activity in your app
 
+
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
         val builder = NotificationCompat.Builder(context, "0")
                 .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("My notification")
-                .setContentText("Hello World!")
+                .setContentTitle("Memorize your words!")
+                .setContentText("Click to go to your word cards")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntent)
@@ -54,6 +55,7 @@ class AlarmReceiver : BroadcastReceiver() {
             notify(0, builder.build())
         }
     }
+
 
     private fun convertDate(timeInMillis: Long): String =
             DateFormat.format("dd/MM/yyyy hh:mm:ss",timeInMillis).toString()
